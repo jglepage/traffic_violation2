@@ -1,24 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_A6B40234-C068-444B-A0AF-EBFFB518D51B" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_F40F65CB-3C8C-4CF4-A6B9-127FC0D44D5E" name="Traffic Violation" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_A6B40234-C068-444B-A0AF-EBFFB518D51B">
   <dmn:extensionElements/>
+  <dmn:itemDefinition id="_1BBCB7A3-0A55-4242-8309-EC2807AC70A1" name="tDriver" isCollection="false">
+    <dmn:itemComponent id="_BEDD4139-FB8C-4E7F-B389-41288FB4F5AB" name="Points" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_E4925874-CF4E-4A50-A21E-922A3E37ABEC" name="City" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_CD3B0FC4-E328-4540-AE1D-CEFCA3B7095B" name="State" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_80F2EDFB-5EB5-4C6F-8FE1-2BC2CDE79AE1" name="Age" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_1A7D1CCD-9B97-45A9-9285-CBC92D6C3B09" name="Name" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_B18A7C49-7DD4-4328-A9E2-ACF24578AEB4" name="tViolation" isCollection="false">
+    <dmn:itemComponent id="_A43C4B30-FBE4-49B3-983F-C11CEE7DF2A6" name="Actual Speed" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_0F807A9A-2545-4FC2-92BA-311DB4F0FE34" name="Speed Limit" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_5D80F572-FD9E-4A5D-8EB4-04D976F11542" name="Type" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_05619AE2-632F-4FDA-AEFB-DF05E498299A" name="Date" isCollection="false">
+      <dmn:typeRef>date</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_164AC46C-EF84-4EB4-9A9A-52BCAB5BBE18" name="Code" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_9B63A908-62BA-472B-B5ED-587CC1BFA5E0" name="tFine" isCollection="false">
+    <dmn:itemComponent id="_B89439B4-AB3C-44A3-A39B-E57C0183FF0E" name="Points" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_C8E800F8-572D-47EF-85D6-A1285224D1D0" name="Amount" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
   <dmn:inputData id="_7E4F1584-1B51-402E-BC45-A89BCBD466B2" name="Driver">
     <dmn:extensionElements/>
-    <dmn:variable id="_89DE674A-3527-441C-9BE9-72E335E5822B" name="Driver"/>
+    <dmn:variable id="_89DE674A-3527-441C-9BE9-72E335E5822B" name="Driver" typeRef="tDriver"/>
   </dmn:inputData>
   <dmn:inputData id="_60F17EDA-697A-4052-AEEF-15E31FCAAC30" name="Violation">
     <dmn:extensionElements/>
-    <dmn:variable id="_4E19C908-133F-42B3-94C6-970B81CA9259" name="Violation"/>
+    <dmn:variable id="_4E19C908-133F-42B3-94C6-970B81CA9259" name="Violation" typeRef="tViolation"/>
   </dmn:inputData>
   <dmn:decision id="_F93F6F37-ABC1-43FF-8C99-01ACAC338A30" name="Fine">
     <dmn:extensionElements/>
-    <dmn:variable id="_90A21A1E-7FC5-4F3C-8922-258749A7E714" name="Fine"/>
+    <dmn:variable id="_90A21A1E-7FC5-4F3C-8922-258749A7E714" name="Fine" typeRef="tFine"/>
     <dmn:informationRequirement id="_5AF39606-300F-49A5-8CFC-44267FB9AB25">
       <dmn:requiredInput href="#_60F17EDA-697A-4052-AEEF-15E31FCAAC30"/>
     </dmn:informationRequirement>
   </dmn:decision>
   <dmn:decision id="_B07460A6-D3B3-4331-AD6F-589E20D8309D" name="Should the driver be suspended?">
     <dmn:extensionElements/>
-    <dmn:variable id="_6C1131B2-6369-4991-9721-7D200A7B6CC8" name="Should the driver be suspended?"/>
+    <dmn:question>Should the driver be suspended due to pointson his driver license?</dmn:question>
+    <dmn:allowedAnswers>Yes, No</dmn:allowedAnswers>
+    <dmn:variable id="_6C1131B2-6369-4991-9721-7D200A7B6CC8" name="Should the driver be suspended?" typeRef="string"/>
     <dmn:informationRequirement id="_756CCA51-0C9A-440F-B028-8EF7E3F4861B">
       <dmn:requiredInput href="#_7E4F1584-1B51-402E-BC45-A89BCBD466B2"/>
     </dmn:informationRequirement>
