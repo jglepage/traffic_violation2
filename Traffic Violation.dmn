@@ -57,6 +57,62 @@
     <dmn:informationRequirement id="_5AF39606-300F-49A5-8CFC-44267FB9AB25">
       <dmn:requiredInput href="#_60F17EDA-697A-4052-AEEF-15E31FCAAC30"/>
     </dmn:informationRequirement>
+    <dmn:decisionTable id="_8410C3E9-33AC-47E3-BB2B-4617C561FA97" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_900D21F1-213F-40C3-9618-C60EA4E466AE">
+        <dmn:inputExpression id="_DFB0186D-0233-4CC6-A935-42C1BAD83E44" typeRef="number">
+          <dmn:text>Violation.Actual Speed</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_AE29DA47-9B7B-4F6A-BEA3-C85E3AFDA2AD">
+        <dmn:inputExpression id="_D931F571-83AE-4377-9F79-F7D178481490" typeRef="string">
+          <dmn:text>Violation.Code</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_161A0411-25F8-4A2F-86A4-DA3CCD69B147">
+        <dmn:inputExpression id="_C1A99E27-2BAF-407F-80B1-E35A4F5B8194" typeRef="date">
+          <dmn:text>Violation.Date</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_9066DA76-1D2A-4343-9990-4EA30EF599BF">
+        <dmn:inputExpression id="_0432E2F2-5917-45B9-BD74-0C56DBBF8249" typeRef="number">
+          <dmn:text>Violation.Speed Limit</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_B8FBF147-715B-4C59-82A5-0237F2460AD1">
+        <dmn:inputExpression id="_7E1BC669-E59F-4308-83BD-785CD8B11762" typeRef="string">
+          <dmn:text>Violation.Type</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_806DC06A-1254-4536-8A23-374E05ACC859" name="Amount" typeRef="number"/>
+      <dmn:output id="_661C6E1D-7D64-47EB-8EA6-0864C8B4CEAE" name="Points" typeRef="number"/>
+      <dmn:annotation name="annotation-1"/>
+      <dmn:rule id="_8BA64738-C256-4999-8406-EA7C3C26314F">
+        <dmn:inputEntry id="_578E7B97-E3E6-45F3-A626-709DBBC8AADD">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_5D0560D3-B269-406D-BAAE-15E8A24BE98D">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_D0DD248C-AE28-48C8-A3EE-E068D5FB7771">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_828B69F2-163F-4210-8BDC-CCB5C47C17B4">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_A894522B-5520-47AE-9B90-A4400050ED6B">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_9B7BA65F-4CE1-4328-B0F0-E1041D6E851D">
+          <dmn:text/>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_4C5D35BA-CAE7-4D1C-B3DC-5E6BBBF7F405">
+          <dmn:text/>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
   </dmn:decision>
   <dmn:decision id="_B07460A6-D3B3-4331-AD6F-589E20D8309D" name="Should the driver be suspended?">
     <dmn:extensionElements/>
@@ -73,7 +129,19 @@
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_1467BDF3-3ECC-4294-9705-E3B94218524E" name="DRG">
       <di:extension>
-        <kie:ComponentsWidthsExtension/>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_8410C3E9-33AC-47E3-BB2B-4617C561FA97">
+            <kie:width>50</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
       </di:extension>
       <dmndi:DMNShape id="dmnshape-drg-_7E4F1584-1B51-402E-BC45-A89BCBD466B2" dmnElementRef="_7E4F1584-1B51-402E-BC45-A89BCBD466B2" isCollapsed="false">
         <dmndi:DMNStyle>
